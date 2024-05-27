@@ -1,5 +1,13 @@
+.navigation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .navigationTitle {
   padding: 10px 20px;
+  width: 100%;
+  max-width: 1200px;
   display: flex;
   justify-content: space-between;
   font-family: var(--font-one);
@@ -16,6 +24,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .navigationBasket i {
@@ -23,14 +32,23 @@
   color: var(--color-five);
 }
 
+.navigationListContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--color-five);
+  box-shadow: 0 0 1px 1px var(--color-five);
+}
+
 .navigationList {
   padding: 10px 20px;
+  width: 100%;
+  max-width: 1200px;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   list-style: none;
-  background-color: var(--color-three);
-  box-shadow: 0 0 1px 1px var(--color-three);
 }
 
 .navigationListItem {
@@ -48,6 +66,27 @@
 
 .navigationListItem a {
   font-weight: 500;
-  color: var(--color-one);
+  color: var(--color-two);
   text-decoration: none;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.navigationListItem a:hover {
+  font-weight: 600;
+  color: var(--color-four);
+}
+
+@media (min-width: 550px) {
+  .navigationTitle h1 {
+    font-size: 24px;
+  }
+
+  .navigationBasket i {
+    font-size: 24px;
+  }
+
+  .navigationListMainItem {
+    width: auto;
+  }
 }

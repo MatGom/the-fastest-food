@@ -1,19 +1,27 @@
 import { Routes, Route } from 'react-router-dom';
 
 import Navigation from './components/Navigation/Navigation.tsx';
+import Home from './pages/Home/Home.tsx';
+import Deals from './pages/Deals/Deals.tsx';
+import Pizzas from './pages/Pizzas/Pizzas.tsx';
+import Burgers from './pages/Burgers/Burgers.tsx';
+import Desserts from './pages/Desserts/Desserts.tsx';
+import Drinks from './pages/Drinks/Drinks.tsx';
+import Footer from './components/Footer/Footer.tsx';
 
 function App() {
   return (
     <div>
       <Navigation />
       <Routes>
-        <Route path='/' element={<h2>Home</h2>} />
-        <Route path='/deals' element={<h2>Deals</h2>} />
-        <Route path='/pizzas' element={<h2>Pizzas</h2>} />
-        <Route path='/burgers' element={<h2>Burgers</h2>} />
-        <Route path='/desserts' element={<h2>Desserts</h2>} />
-        <Route path='/drinks' element={<h2>Drinks</h2>} />
+        <Route path='/' element={<Home />} />
+        <Route path='/deals' element={<Deals />} />
+        <Route path='/pizzas' element={<Pizzas />} />
+        <Route path='/burgers' element={<Burgers />} />
+        <Route path='/desserts' element={<Desserts />} />
+        <Route path='/drinks' element={<Drinks />} />
       </Routes>
+      <Footer />
     </div>
   );
 }

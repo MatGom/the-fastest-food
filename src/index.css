@@ -1,4 +1,21 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 :root {
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  --font-one: 'Rock Salt', cursive;
+  --font-two: 'Montserrat', sans-serif;
+
+  --color-one: #403d39;
+  --color-two: #fffcf2;
+  --color-three: #ccc5b9;
+  --color-four: #252422;
+  --color-five: #eb5e28;
+
+  background-color: var(--color-two);
+  font-family: var(--font-two);
 }

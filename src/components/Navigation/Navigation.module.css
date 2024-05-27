@@ -1,0 +1,53 @@
+.navigationTitle {
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-one);
+  background-color: var(--color-two);
+}
+
+.navigationTitle h1 {
+  color: var(--color-one);
+  margin-left: 5px;
+  font-size: 20px;
+}
+
+.navigationBasket {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navigationBasket i {
+  font-size: 20px;
+  color: var(--color-five);
+}
+
+.navigationList {
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  list-style: none;
+  background-color: var(--color-three);
+  box-shadow: 0 0 1px 1px var(--color-three);
+}
+
+.navigationListItem {
+  padding: 2px 4px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.navigationListMainItem {
+  width: 50%;
+}
+
+.navigationListItem a {
+  font-weight: 500;
+  color: var(--color-one);
+  text-decoration: none;
+}

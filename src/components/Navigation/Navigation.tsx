@@ -1,6 +1,6 @@
 import styles from './Navigation.module.css';
 
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export default function Navigation() {
   return (
@@ -14,22 +14,34 @@ export default function Navigation() {
       <div className={styles.navigationListContainer}>
         <ul className={styles.navigationList}>
           <li className={`${styles.navigationListItem} ${styles.navigationListMainItem}`}>
-            <Link to='/'>Home</Link>
+            <NavLink to='/' className={({ isActive }) => (isActive ? styles.active : undefined)} end>
+              Home
+            </NavLink>
           </li>
           <li className={`${styles.navigationListItem} ${styles.navigationListMainItem}`}>
-            <Link to='/deals'>Deals</Link>
+            <NavLink to='/deals' className={({ isActive }) => (isActive ? styles.active : undefined)}>
+              Deals
+            </NavLink>
           </li>
           <li className={styles.navigationListItem}>
-            <Link to='/pizzas'>Pizzas</Link>
+            <NavLink to='/pizzas' className={({ isActive }) => (isActive ? styles.active : undefined)}>
+              Pizzas
+            </NavLink>
           </li>
           <li className={styles.navigationListItem}>
-            <Link to='/burgers'>Burgers</Link>
+            <NavLink to='/burgers' className={({ isActive }) => (isActive ? styles.active : undefined)}>
+              Burgers
+            </NavLink>
           </li>
           <li className={styles.navigationListItem}>
-            <Link to='/desserts'>Desserts</Link>
+            <NavLink to='/desserts' className={({ isActive }) => (isActive ? styles.active : undefined)}>
+              Desserts
+            </NavLink>
           </li>
           <li className={styles.navigationListItem}>
-            <Link to='/drinks'>Drinks</Link>
+            <NavLink to='/drinks' className={({ isActive }) => (isActive ? styles.active : undefined)}>
+              Drinks
+            </NavLink>
           </li>
         </ul>
       </div>

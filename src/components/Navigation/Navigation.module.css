@@ -72,7 +72,8 @@
   cursor: pointer;
 }
 
-.navigationListItem a:hover {
+.navigationListItem a:hover,
+.navigationListItem a.active {
   font-weight: 600;
   color: var(--color-four);
 }

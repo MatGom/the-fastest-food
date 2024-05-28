@@ -7,7 +7,7 @@
 
 .pizzas::before {
   content: '';
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -34,4 +34,74 @@
   text-align: center;
   font-style: italic;
   background-color: var(--color-three);
+}
+
+.productsContainer {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.productCard {
+  margin-bottom: 16px;
+  width: 47%;
+  box-shadow: 0 0 3px 3px var(--color-three);
+  border-radius: 3px;
+  background-color: var(--color-two);
+  overflow: hidden;
+}
+
+img {
+  width: 100%;
+}
+
+.productCardInfo {
+  padding: 5px;
+}
+
+.productTitle {
+  font-size: 12px;
+  font-family: var(--font-one);
+}
+
+select {
+  font-size: 14px;
+  margin: 10px auto 15px auto;
+  width: 100%;
+  border: none;
+  border-radius: 3px;
+  background-color: transparent;
+}
+
+option {
+  font-size: 14px;
+  width: 10px;
+  width: inherit;
+}
+
+.productButtonsContainer {
+  margin-left: 4px;
+  margin-bottom: 2px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.infoButton {
+  font-weight: 600;
+  color: var(--color-five);
+  background-color: transparent;
+  border: none;
+}
+
+.addButton {
+  padding: 5px;
+  width: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-five);
+  border: none;
+  border-radius: 8px;
+  color: var(--color-two);
 }

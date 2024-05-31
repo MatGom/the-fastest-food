@@ -5,10 +5,27 @@ import { type ChangeEvent, useState } from 'react';
 import { pizzas } from '../../data/pizzas-data';
 
 export default function Pizzas() {
-  const [selectedSize, setSelectedSize] = useState('Large');
+  const [selectedSize, setSelectedSize] = useState<{ [key: string]: string }>(
+    Object.keys(pizzas).reduce((acc, key) => {
+      acc[key] = 'Large';
+      return acc;
+    }, {} as { [key: string]: string })
+  );
+  const [infoID, setInfoID] = useState<string | null>(null);
 
-  const handleChangeSize = (event: ChangeEvent<HTMLSelectElement>) => {
-    setSelectedSize(event.target.value);
+  const handleChangeSize = (event: ChangeEvent<HTMLSelectElement>, id: string) => {
+    setSelectedSize({
+      ...selectedSize,
+      [id]: event.target.value,
+    });
+  };
+
+  const handleOpenInfo = (id: string) => {
+    setInfoID(id);
+  };
+
+  const handleCloseInfo = () => {
+    setInfoID(null);
   };
 
   return (
@@ -28,7 +45,10 @@ export default function Pizzas() {
             <div className={styles.productCardInfo}>
               <h3 className={styles.productTitle}>{pizza.name}</h3>
               <div className={styles.dropdownContainer}>
-                <select value={selectedSize} className={styles.select} onChange={handleChangeSize}>
+                <select
+                  value={selectedSize[pizza.id]}
+                  className={styles.select}
+                  onChange={event => handleChangeSize(event, pizza.id)}>
                   {Object.values(pizza.sizes).map(size => (
                     <option key={size.size} value={size.size}>
                       {size.size}
@@ -37,13 +57,25 @@ export default function Pizzas() {
                 </select>
               </div>
               <div className={styles.productButtonsContainer}>
-                <button className={styles.infoButton}>Info</button>
+                <button className={styles.infoButton} onClick={() => handleOpenInfo(pizza.id)}>
+                  Info
+                </button>
                 <button className={styles.addButton}>
                   <i className='fa-solid fa-plus'></i>
-                  <p>{selectedSize === 'Large' ? `£${pizza.sizes.large.price}` : `£${pizza.sizes.medium.price}`}</p>
+                  <p>
+                    {selectedSize[pizza.id] === 'Large'
+                      ? `£${pizza.sizes.large.price}`
+                      : `£${pizza.sizes.medium.price}`}
+                  </p>
                 </button>
               </div>
             </div>
+            {infoID === pizza.id && (
+              <div className={styles.productInfo}>
+                <p>Info</p>
+                <button onClick={handleCloseInfo}>Close</button>
+              </div>
+            )}
           </div>
         ))}
       </div>

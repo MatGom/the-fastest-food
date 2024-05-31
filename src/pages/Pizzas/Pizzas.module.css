@@ -44,6 +44,7 @@
 }
 
 .productCard {
+  position: relative;
   margin-bottom: 16px;
   width: 47%;
   box-shadow: 0 0 3px 3px var(--color-three);
@@ -104,4 +105,18 @@ option {
   border: none;
   border-radius: 8px;
   color: var(--color-two);
+}
+
+.productInfo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
+  z-index: 2;
 }

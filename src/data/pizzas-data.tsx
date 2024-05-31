@@ -10,7 +10,7 @@ import vegetarianPizzaImg from '../images/pizza img/vegetarian.jpg';
 import vegySpecialPizzaImg from '../images/pizza img/vegetarian-special.jpg';
 
 type PizzaSizeType = {
-  size: 'Medium' | 'Large';
+  size: 'Medium' | 'Large' | 'XL';
   price: number;
 };
 
@@ -22,6 +22,11 @@ type PizzaType = {
   sizes: {
     medium: PizzaSizeType;
     large: PizzaSizeType;
+    xl: PizzaSizeType;
+  };
+  info: {
+    ingredients: string;
+    description: string;
   };
 };
 
@@ -53,6 +58,14 @@ export const pizzas: PizzasType = {
         size: 'Large',
         price: 11.99,
       },
+      xl: {
+        size: 'XL',
+        price: 14.99,
+      },
+    },
+    info: {
+      ingredients: 'Tomato base sauce, basil, cheddar, mozzarella, cherry tomatoes',
+      description: 'Simple, but delicious! For those that love the taste of mozzarella!',
     },
   },
 
@@ -70,6 +83,14 @@ export const pizzas: PizzasType = {
         size: 'Large',
         price: 12.99,
       },
+      xl: {
+        size: 'XL',
+        price: 15.99,
+      },
+    },
+    info: {
+      ingredients: 'Tomato base sauce, basil, cheddar, feta, cherry tomatoes',
+      description: 'This delicious pizza is a great source of protein for anyone!',
     },
   },
 
@@ -87,6 +108,14 @@ export const pizzas: PizzasType = {
         size: 'Large',
         price: 11.99,
       },
+      xl: {
+        size: 'XL',
+        price: 13.99,
+      },
+    },
+    info: {
+      ingredients: 'Tomato base sauce, basil, cheddar, ham, cherry tomatoes',
+      description: 'This simple pizza is great for all those ham lovers!',
     },
   },
 
@@ -104,6 +133,14 @@ export const pizzas: PizzasType = {
         size: 'Large',
         price: 12.99,
       },
+      xl: {
+        size: 'XL',
+        price: 15.99,
+      },
+    },
+    info: {
+      ingredients: 'Tomato base sauce, basil, cheddar, mushrooms, cherry tomatoes',
+      description: 'If you like the mushrooms, you will love this pizza!',
     },
   },
 
@@ -121,6 +158,14 @@ export const pizzas: PizzasType = {
         size: 'Large',
         price: 12.99,
       },
+      xl: {
+        size: 'XL',
+        price: 15.99,
+      },
+    },
+    info: {
+      ingredients: 'Tomato base sauce, basil, cheddar, pineapple, ham',
+      description: 'For anyone that likes a bit of a sweet taste in pizza, especially for those that love pineapples!',
     },
   },
 
@@ -132,12 +177,20 @@ export const pizzas: PizzasType = {
     sizes: {
       medium: {
         size: 'Medium',
-        price: 9.99,
+        price: 10.99,
       },
       large: {
         size: 'Large',
-        price: 12.99,
+        price: 13.99,
       },
+      xl: {
+        size: 'XL',
+        price: 16.99,
+      },
+    },
+    info: {
+      ingredients: 'Tomato base sauce, basil, cheddar, black olives, cherry tomatoes, jalapeno, beef, sausage',
+      description: 'Any meat lovers out there? This pizza is a great choice for you!',
     },
   },
 
@@ -155,6 +208,14 @@ export const pizzas: PizzasType = {
         size: 'Large',
         price: 13.99,
       },
+      xl: {
+        size: 'XL',
+        price: 16.99,
+      },
+    },
+    info: {
+      ingredients: 'Tomato base sauce, basil, cheddar, black olives, cherry tomatoes, lime, beef, red onion',
+      description: 'We are very proud of our signature pizza! We are sure that you will love it!',
     },
   },
 
@@ -172,6 +233,15 @@ export const pizzas: PizzasType = {
         size: 'Large',
         price: 12.99,
       },
+      xl: {
+        size: 'XL',
+        price: 15.99,
+      },
+    },
+    info: {
+      ingredients: 'Tomato base sauce, parsley, cheddar, sausage',
+      description:
+        'Sounds very simple, but this pizza actually differs a lot from the others, yet it is still delicious!',
     },
   },
 
@@ -189,6 +259,14 @@ export const pizzas: PizzasType = {
         size: 'Large',
         price: 12.99,
       },
+      xl: {
+        size: 'XL',
+        price: 15.99,
+      },
+    },
+    info: {
+      ingredients: 'Tomato base sauce, basil, cheddar, black olives, red onion, red peppers, jalapeno',
+      description: 'For anyone that prefers a pizza without a meat in it! And it is delicious!',
     },
   },
 
@@ -206,6 +284,14 @@ export const pizzas: PizzasType = {
         size: 'Large',
         price: 13.99,
       },
+      xl: {
+        size: 'XL',
+        price: 16.99,
+      },
+    },
+    info: {
+      ingredients: 'Tomato base sauce, basil, cheddar, cherry tomatoes, red onion, jalapeno, broccoli',
+      description: 'This one is our special variant of a vegetarian pizza, and we are very proud of it!',
     },
   },
 };

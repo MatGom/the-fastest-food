@@ -62,17 +62,16 @@ export default function Pizzas() {
                 </button>
                 <button className={styles.addButton}>
                   <i className='fa-solid fa-plus'></i>
-                  <p>
-                    {selectedSize[pizza.id] === 'Large'
-                      ? `£${pizza.sizes.large.price}`
-                      : `£${pizza.sizes.medium.price}`}
-                  </p>
+                  <p>{`£${pizza.sizes[selectedSize[pizza.id].toLowerCase() as keyof typeof pizza.sizes].price}`}</p>
                 </button>
               </div>
             </div>
             {infoID === pizza.id && (
               <div className={styles.productInfo}>
-                <p>Info</p>
+                <p className={styles.productIngredients}>
+                  <span>Ingredients:</span> {pizza.info.ingredients}.
+                </p>
+                <p className={styles.productDescription}>{pizza.info.description}</p>
                 <button onClick={handleCloseInfo}>Close</button>
               </div>
             )}

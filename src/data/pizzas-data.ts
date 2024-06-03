@@ -9,30 +9,14 @@ import sausagePizzaImg from '../images/pizza img/sausage.jpg';
 import vegetarianPizzaImg from '../images/pizza img/vegetarian.jpg';
 import vegySpecialPizzaImg from '../images/pizza img/vegetarian-special.jpg';
 
-type PizzaSizeType = {
-  size: 'Medium' | 'Large' | 'XL';
-  price: number;
-};
+import { type ProductsType } from './product-type';
 
-type PizzaType = {
-  id: string;
-  name: string;
-  image: string;
-  alt: string;
-  sizes: {
-    medium: PizzaSizeType;
-    large: PizzaSizeType;
-    xl: PizzaSizeType;
-  };
-  info: {
-    ingredients: string;
-    description: string;
-  };
-};
+export const pizzaWelcomeTextOne: string =
+  'Our pizzas are prepared extremely fast, without compromising their quality!';
+export const pizzaWelcomeTextTwo: string = `Did you know that our chef is the world champion in pizza acrobatics? He holds the Guinness World Record for
+  the fastest spinning of pizza dough!`;
 
-export type PizzasType = Record<string, PizzaType>;
-
-export const pizzas: PizzasType = {
+export const pizzas: ProductsType = {
   pizza1: {
     id: 'pizza1',
     name: 'Mozzarella',

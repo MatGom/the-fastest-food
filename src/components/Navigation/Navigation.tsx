@@ -1,14 +1,33 @@
 import styles from './Navigation.module.css';
 
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
 export default function Navigation() {
+  const [basketIsOpen, setBasketIsOpen] = useState<boolean>(false);
+
+  const handleShowBasket = () => {
+    setBasketIsOpen(true);
+  };
+
+  const handleCloseBasket = () => {
+    setBasketIsOpen(false);
+  };
+
   return (
     <nav className={styles.navigation}>
+      {basketIsOpen && (
+        <div className='basket'>
+          <h4>Basket</h4>
+          <button onClick={handleCloseBasket}>Close</button>
+        </div>
+      )}
+
       <div className={styles.navigationTitle}>
         <h1>The Fastest Food</h1>
-        <div className={styles.navigationBasket}>
+        <div className={styles.navigationBasket} onClick={handleShowBasket}>
           <i className='fa-solid fa-basket-shopping'></i>
+          <p className={styles.navigationBasketPrice}>£0.00</p>
         </div>
       </div>
       <div className={styles.navigationListContainer}>

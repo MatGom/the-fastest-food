@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: var(--color-two);
 }
 
 .navigationTitle {
@@ -17,19 +18,42 @@
 .navigationTitle h1 {
   color: var(--color-one);
   margin-left: 5px;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .navigationBasket {
+  width: 100px;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
+  border: 2px solid var(--color-five);
+  border-radius: 20px;
+  transition: 0.2s;
   cursor: pointer;
 }
 
 .navigationBasket i {
-  font-size: 20px;
+  font-size: 14px;
   color: var(--color-five);
+  transition: 0.2s;
+}
+
+.navigationBasketPrice {
+  margin-left: 5px;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--color-five);
+  font-family: var(--font-two);
+  transition: 0.2s;
+}
+
+.navigationBasket:hover {
+  background-color: var(--color-five);
+}
+
+.navigationBasket:hover.navigationBasket i,
+.navigationBasket:hover .navigationBasketPrice {
+  color: var(--color-two);
 }
 
 .navigationListContainer {
@@ -83,11 +107,15 @@
     font-size: 24px;
   }
 
-  .navigationBasket i {
-    font-size: 24px;
+  .navigationBasket {
+    padding: 10px;
   }
 
   .navigationListMainItem {
     width: auto;
+  }
+
+  .navigationList {
+    justify-content: space-evenly;
   }
 }

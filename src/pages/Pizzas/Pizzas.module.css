@@ -1,4 +1,5 @@
 .pizzas {
+  max-width: 1200px;
   position: relative;
   padding: 10px 20px;
   min-height: 100vh;
@@ -39,15 +40,15 @@
 .productsContainer {
   margin-top: 20px;
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
+  gap: 20px;
 }
 
 .productCard {
   position: relative;
-  margin-bottom: 16px;
-  width: 47%;
-  box-shadow: 0 0 3px 3px var(--color-three);
+  flex: 1 1 calc(50% - 10px);
+  max-width: calc(50% - 10px);
+  box-shadow: 0 0 2px 2px var(--color-three);
   border-radius: 3px;
   background-color: var(--color-two);
   overflow: hidden;
@@ -73,6 +74,7 @@ select {
   border: none;
   border-radius: 3px;
   background-color: transparent;
+  cursor: pointer;
 }
 
 option {
@@ -93,6 +95,12 @@ option {
   color: var(--color-five);
   background-color: transparent;
   border: none;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.infoButton:hover {
+  color: var(--color-one);
 }
 
 .addButton {
@@ -105,6 +113,15 @@ option {
   border: none;
   border-radius: 8px;
   color: var(--color-two);
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.addButton:hover {
+  background-color: var(--color-two);
+  color: var(--color-five);
+  font-weight: 600;
+  box-shadow: 0 0 3px 1px var(--color-five);
 }
 
 .productInfo {
@@ -129,7 +146,7 @@ option {
 }
 
 .productDescription {
-  font-size: 11px;
+  font-size: 12px;
   font-style: italic;
 }
 
@@ -139,4 +156,33 @@ option {
   background-color: var(--color-four);
   border: none;
   border-radius: 8px;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.productInfo button:hover {
+  background-color: var(--color-five);
+}
+
+@media (min-width: 768px) {
+  .productsContainer {
+    margin-top: 18px;
+    gap: 18px;
+  }
+
+  .productCard {
+    max-width: calc(33% - 10px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .productsContainer {
+    margin-top: 13px;
+    gap: 13px;
+  }
+
+  .productCard {
+    margin-bottom: 2px;
+    max-width: calc(25% - 10px);
+  }
 }

@@ -13,14 +13,16 @@ function App() {
   return (
     <div>
       <Navigation />
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/deals' element={<Deals />} />
-        <Route path='/pizzas' element={<Pizzas />} />
-        <Route path='/burgers' element={<Burgers />} />
-        <Route path='/desserts' element={<Desserts />} />
-        <Route path='/drinks' element={<Drinks />} />
-      </Routes>
+      <div className='container'>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/deals' element={<Deals />} />
+          <Route path='/pizzas' element={<Pizzas />} />
+          <Route path='/burgers' element={<Burgers />} />
+          <Route path='/desserts' element={<Desserts />} />
+          <Route path='/drinks' element={<Drinks />} />
+        </Routes>
+      </div>
       <Footer />
     </div>
   );

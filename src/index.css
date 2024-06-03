@@ -19,3 +19,10 @@
   background-color: var(--color-two);
   font-family: var(--font-two);
 }
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

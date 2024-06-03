@@ -1,8 +1,7 @@
+import { ChangeEvent, useState, useCallback } from 'react';
 import styles from './Pizzas.module.css';
-
-import { type ChangeEvent, useState } from 'react';
-
 import { pizzas } from '../../data/pizzas-data';
+import { useBasket } from '../../hooks/useBasket';
 
 export default function Pizzas() {
   const [selectedSize, setSelectedSize] = useState<{ [key: string]: string }>(
@@ -12,6 +11,7 @@ export default function Pizzas() {
     }, {} as { [key: string]: string })
   );
   const [infoID, setInfoID] = useState<string | null>(null);
+  const { addToBasket } = useBasket();
 
   const handleChangeSize = (event: ChangeEvent<HTMLSelectElement>, id: string) => {
     setSelectedSize({
@@ -27,6 +27,23 @@ export default function Pizzas() {
   const handleCloseInfo = () => {
     setInfoID(null);
   };
+
+  const handleAddToBasket = useCallback(
+    (id: string) => {
+      const pizza = pizzas[id];
+      const size = selectedSize[id];
+      const price = pizza.sizes[size.toLowerCase() as keyof typeof pizza.sizes].price;
+      const item = {
+        id: pizza.id,
+        name: pizza.name,
+        size,
+        price,
+      };
+
+      addToBasket(item);
+    },
+    [selectedSize, addToBasket]
+  );
 
   return (
     <section className={styles.pizzas}>
@@ -60,7 +77,7 @@ export default function Pizzas() {
                 <button className={styles.infoButton} onClick={() => handleOpenInfo(pizza.id)}>
                   Info
                 </button>
-                <button className={styles.addButton}>
+                <button className={styles.addButton} onClick={() => handleAddToBasket(pizza.id)}>
                   <i className='fa-solid fa-plus'></i>
                   <p>{`£${pizza.sizes[selectedSize[pizza.id].toLowerCase() as keyof typeof pizza.sizes].price}`}</p>
                 </button>

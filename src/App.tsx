@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
+import { BasketProvider } from './context/BasketContext.tsx';
 
 import Navigation from './components/Navigation/Navigation.tsx';
 import Home from './pages/Home/Home.tsx';
@@ -11,7 +12,7 @@ import Footer from './components/Footer/Footer.tsx';
 
 function App() {
   return (
-    <div>
+    <BasketProvider>
       <Navigation />
       <div className='container'>
         <Routes>
@@ -24,7 +25,7 @@ function App() {
         </Routes>
       </div>
       <Footer />
-    </div>
+    </BasketProvider>
   );
 }
 

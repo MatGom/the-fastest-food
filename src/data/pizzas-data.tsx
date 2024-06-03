@@ -30,18 +30,7 @@ type PizzaType = {
   };
 };
 
-type PizzasType = {
-  pizza1: PizzaType;
-  pizza2: PizzaType;
-  pizza3: PizzaType;
-  pizza4: PizzaType;
-  pizza5: PizzaType;
-  pizza6: PizzaType;
-  pizza7: PizzaType;
-  pizza8: PizzaType;
-  pizza9: PizzaType;
-  pizza10: PizzaType;
-};
+export type PizzasType = Record<string, PizzaType>;
 
 export const pizzas: PizzasType = {
   pizza1: {

@@ -3,8 +3,12 @@ import styles from './Navigation.module.css';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
+import Basket from '../Basket/Basket';
+import { useBasket } from '../../hooks/useBasket';
+
 export default function Navigation() {
   const [basketIsOpen, setBasketIsOpen] = useState<boolean>(false);
+  const { totalPrice } = useBasket();
 
   const handleShowBasket = () => {
     setBasketIsOpen(true);
@@ -16,18 +20,13 @@ export default function Navigation() {
 
   return (
     <nav className={styles.navigation}>
-      {basketIsOpen && (
-        <div className='basket'>
-          <h4>Basket</h4>
-          <button onClick={handleCloseBasket}>Close</button>
-        </div>
-      )}
+      {basketIsOpen && <Basket closeBasket={handleCloseBasket} />}
 
       <div className={styles.navigationTitle}>
         <h1>The Fastest Food</h1>
         <div className={styles.navigationBasket} onClick={handleShowBasket}>
           <i className='fa-solid fa-basket-shopping'></i>
-          <p className={styles.navigationBasketPrice}>£0.00</p>
+          <p className={styles.navigationBasketPrice}>£{totalPrice === 0 ? '0.00' : totalPrice.toFixed(2)}</p>
         </div>
       </div>
       <div className={styles.navigationListContainer}>

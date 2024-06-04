@@ -9,10 +9,12 @@ import Burgers from './pages/Burgers/Burgers.tsx';
 import Desserts from './pages/Desserts/Desserts.tsx';
 import Drinks from './pages/Drinks/Drinks.tsx';
 import Footer from './components/Footer/Footer.tsx';
+import ScrollToTop from './components/ScrollToTop/ScrollToTop.tsx';
 
 function App() {
   return (
     <BasketProvider>
+      <ScrollToTop />
       <Navigation />
       <div className='container'>
         <Routes>

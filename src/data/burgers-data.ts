@@ -35,7 +35,7 @@ export const burgers: ProductsType = {
 
   burger2: {
     id: 'burger2',
-    name: 'Quarter Punder',
+    name: 'Quarter Pounder',
     image: quarterpunderBurgerImg,
     alt: 'Burger quarter pounder',
     sizes: {

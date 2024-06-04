@@ -1,5 +1,15 @@
-import styles from './Drinks.module.css';
+import ProductPage from '../../components/ProductPage/ProductPage';
+
+import { drinks, drinksWelcomeTextOne, drinksWelcomeTextTwo } from '../../data/drinks-data';
 
 export default function Drinks() {
-  return <section className={styles.drinks}>Drinks</section>;
+  return (
+    <ProductPage
+      pageTitle='Drinks'
+      products={drinks}
+      initialSelectedSize='Medium'
+      welcomeTextOne={drinksWelcomeTextOne}
+      welcomeTextTwo={drinksWelcomeTextTwo}
+    />
+  );
 }

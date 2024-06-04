@@ -1,5 +1,15 @@
-import styles from './Desserts.module.css';
+import ProductPage from '../../components/ProductPage/ProductPage';
+
+import { desserts, dessertsWelcomeTextOne, dessertsWelcomeTextTwo } from '../../data/desserts-data';
 
 export default function Desserts() {
-  return <section className={styles.desserts}>Desserts</section>;
+  return (
+    <ProductPage
+      pageTitle='Desserts'
+      products={desserts}
+      initialSelectedSize='Medium'
+      welcomeTextOne={dessertsWelcomeTextOne}
+      welcomeTextTwo={dessertsWelcomeTextTwo}
+    />
+  );
 }

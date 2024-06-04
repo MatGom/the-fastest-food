@@ -42,5 +42,12 @@
 }
 
 .footerLowerText {
+  font-weight: 600;
   font-size: 12px;
+}
+
+@media (min-width: 1921px) {
+  .footerUpper {
+    justify-content: space-evenly;
+  }
 }

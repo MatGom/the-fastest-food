@@ -1,13 +1,13 @@
-import mozzarellaPizzaImg from '../images/pizza img/mozzarella.jpg';
-import fetaPassionPizzaImg from '../images/pizza img/feta.jpg';
-import simplyHamPizzaImg from '../images/pizza img/ham.jpg';
-import funghiPizzaImg from '../images/pizza img/mushrooms.jpg';
-import hawaiianPizzaImg from '../images/pizza img/hawaiian.jpg';
-import meatyPizzaImg from '../images/pizza img/meaty.jpg';
-import signaturePizzaImg from '../images/pizza img/meaty-special.jpg';
-import sausagePizzaImg from '../images/pizza img/sausage.jpg';
-import vegetarianPizzaImg from '../images/pizza img/vegetarian.jpg';
-import vegySpecialPizzaImg from '../images/pizza img/vegetarian-special.jpg';
+import mozzarellaPizzaImg from '../images/pizza-img/mozzarella.jpg';
+import fetaPassionPizzaImg from '../images/pizza-img/feta.jpg';
+import simplyHamPizzaImg from '../images/pizza-img/ham.jpg';
+import funghiPizzaImg from '../images/pizza-img/mushrooms.jpg';
+import hawaiianPizzaImg from '../images/pizza-img/hawaiian.jpg';
+import meatyPizzaImg from '../images/pizza-img/meaty.jpg';
+import signaturePizzaImg from '../images/pizza-img/meaty-special.jpg';
+import sausagePizzaImg from '../images/pizza-img/sausage.jpg';
+import vegetarianPizzaImg from '../images/pizza-img/vegetarian.jpg';
+import vegySpecialPizzaImg from '../images/pizza-img/vegetarian-special.jpg';
 
 import { type ProductsType } from './product-type';
 

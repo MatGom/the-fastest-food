@@ -11,25 +11,58 @@ export default function Basket({ closeBasket }: BasketPropsType) {
 
   return (
     <div className={styles.basket}>
-      <h3>Basket</h3>
-      {basket.length === 0 ? (
-        <p>Your basket is empty!</p>
-      ) : (
-        <>
-          <ul>
-            {basket.map(item => (
-              <li key={item.id + item.size}>
-                {item.name} ({item.size}) - £{item.price.toFixed(2)} x {item.quantity}
-              </li>
-            ))}
-          </ul>
-          <div className={styles.totalPrice}>
-            <strong>Total: £{totalPrice.toFixed(2)}</strong>
+      <h3 className={styles.basketTitle}>Basket</h3>
+      <div className={styles.basketContent}>
+        {basket.length === 0 ? (
+          <p className={styles.basketEmptyText}>Your basket is empty!</p>
+        ) : (
+          <>
+            <ul className={styles.basketList}>
+              {basket.map(item => (
+                <li key={item.id + item.size} className={styles.basketListItem}>
+                  <h4 className={styles.basketListItemTitle}>
+                    {item.name} ({item.size})
+                  </h4>
+                  <div className={styles.basketListItemContent}>
+                    <p className={styles.basketListItemPrice}>£{(item.price * item.quantity).toFixed(2)}</p>
+                    <div className={styles.basketListItemButtons}>
+                      <button>
+                        <i className='fa-solid fa-minus'></i>
+                      </button>
+                      <p>{item.quantity}</p>
+                      <button>
+                        <i className='fa-solid fa-plus'></i>
+                      </button>
+                    </div>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
+        {basket.length === 0 ? (
+          <div className={styles.basketOptionsButton}>
+            <button onClick={closeBasket} className={styles.closeBasketButton}>
+              Close
+            </button>
           </div>
-        </>
-      )}
-      <button onClick={closeBasket}>Close</button>
-      <button onClick={clearBasket}>Clear basket</button>
+        ) : (
+          <div className={styles.basketOptionsButtons}>
+            <button onClick={closeBasket} className={styles.closeBasketButton}>
+              Close
+            </button>
+            <button onClick={clearBasket} className={styles.clearBasketButton}>
+              Clear basket
+            </button>
+          </div>
+        )}
+        {basket.length !== 0 && (
+          <button className={styles.checkoutButton}>
+            <p>Checkout</p>
+            <p>£{totalPrice.toFixed(2)}</p>
+          </button>
+        )}
+      </div>
     </div>
   );
 }

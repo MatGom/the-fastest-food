@@ -1,5 +1,7 @@
 import styles from './Basket.module.css';
 
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useBasket } from '../../hooks/useBasket';
 
 type BasketPropsType = {
@@ -8,6 +10,26 @@ type BasketPropsType = {
 
 export default function Basket({ closeBasket }: BasketPropsType) {
   const { basket, totalPrice, clearBasket, increaseQuantity, decreaseQuantity } = useBasket();
+  const [showPopup, setShowPopup] = useState(false);
+  const navigate = useNavigate();
+
+  const handleCheckout = () => {
+    setShowPopup(true);
+    setTimeout(() => {
+      clearBasket();
+      closeBasket();
+      navigate('/');
+    }, 3000);
+  };
+
+  useEffect(() => {
+    if (showPopup) {
+      const timer = setTimeout(() => {
+        setShowPopup(false);
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [showPopup]);
 
   return (
     <div className={styles.basket}>
@@ -57,12 +79,21 @@ export default function Basket({ closeBasket }: BasketPropsType) {
           </div>
         )}
         {basket.length !== 0 && (
-          <button className={styles.checkoutButton}>
+          <button className={styles.checkoutButton} onClick={handleCheckout}>
             <p>Checkout</p>
             <p>£{totalPrice.toFixed(2)}</p>
           </button>
         )}
       </div>
+      {showPopup && (
+        <div className={styles.confirmationPopup}>
+          <p>
+            Thank you!
+            <br />
+            Your order has been placed and will be delivered fast!
+          </p>
+        </div>
+      )}
     </div>
   );
 }

@@ -13,6 +13,8 @@ type BasketContextType = {
   totalPrice: number;
   addToBasket: (item: Omit<BasketItemType, 'quantity'>) => void;
   clearBasket: () => void;
+  increaseQuantity: (id: string, size: string) => void;
+  decreaseQuantity: (id: string, size: string) => void;
 };
 
 const BasketContext = createContext<BasketContextType | undefined>(undefined);
@@ -63,8 +65,32 @@ export const BasketProvider = ({ children }: BasketProviderProps) => {
     localStorage.removeItem('basket');
   }, []);
 
+  const increaseQuantity = useCallback((id: string, size: string) => {
+    setBasket(prevBasket => {
+      return prevBasket.map(item => {
+        if (item.id === id && item.size === size) {
+          return { ...item, quantity: item.quantity + 1 };
+        }
+        return item;
+      });
+    });
+  }, []);
+
+  const decreaseQuantity = useCallback((id: string, size: string) => {
+    setBasket(prevBasket => {
+      return prevBasket
+        .map(item => {
+          if (item.id === id && item.size === size) {
+            return { ...item, quantity: Math.max(item.quantity - 1, 0) };
+          }
+          return item;
+        })
+        .filter(item => item.quantity > 0);
+    });
+  }, []);
+
   return (
-    <BasketContext.Provider value={{ basket, totalPrice, addToBasket, clearBasket }}>{children}</BasketContext.Provider>
+    <BasketContext.Provider value={{ basket, totalPrice, addToBasket, clearBasket, increaseQuantity, decreaseQuantity }}>{children}</BasketContext.Provider>
   );
 };
 

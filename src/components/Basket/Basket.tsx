@@ -7,7 +7,7 @@ type BasketPropsType = {
 };
 
 export default function Basket({ closeBasket }: BasketPropsType) {
-  const { basket, totalPrice, clearBasket } = useBasket();
+  const { basket, totalPrice, clearBasket, increaseQuantity, decreaseQuantity } = useBasket();
 
   return (
     <div className={styles.basket}>
@@ -26,11 +26,11 @@ export default function Basket({ closeBasket }: BasketPropsType) {
                   <div className={styles.basketListItemContent}>
                     <p className={styles.basketListItemPrice}>£{(item.price * item.quantity).toFixed(2)}</p>
                     <div className={styles.basketListItemButtons}>
-                      <button>
+                      <button onClick={() => decreaseQuantity(item.id, item.size)}>
                         <i className='fa-solid fa-minus'></i>
                       </button>
                       <p>{item.quantity}</p>
-                      <button>
+                      <button onClick={() => increaseQuantity(item.id, item.size)}>
                         <i className='fa-solid fa-plus'></i>
                       </button>
                     </div>

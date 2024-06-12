@@ -6,12 +6,13 @@ type BasketItemType = {
   size: string;
   price: number;
   quantity: number;
+  description?: string;
 };
 
 type BasketContextType = {
   basket: BasketItemType[];
   totalPrice: number;
-  addToBasket: (item: Omit<BasketItemType, 'quantity'>) => void;
+  addToBasket: (item: BasketItemType) => void;
   clearBasket: () => void;
   increaseQuantity: (id: string, size: string) => void;
   decreaseQuantity: (id: string, size: string) => void;
@@ -32,7 +33,6 @@ export const BasketProvider = ({ children }: BasketProviderProps) => {
   const [basket, setBasket] = useState<BasketItemType[]>(getInitialBasket);
   console.log(basket);
   const [totalPrice, setTotalPrice] = useState<number>(0);
-  console.log(basket);
 
   useEffect(() => {
     const newTotalPrice = basket.reduce((total, item) => total + item.price * item.quantity, 0);
@@ -40,7 +40,7 @@ export const BasketProvider = ({ children }: BasketProviderProps) => {
     localStorage.setItem('basket', JSON.stringify(basket));
   }, [basket]);
 
-  const addToBasket = useCallback((item: Omit<BasketItemType, 'quantity'>) => {
+  const addToBasket = useCallback((item: BasketItemType) => {
     setBasket(prevBasket => {
       const existingItemIndex = prevBasket.findIndex(
         basketItem => basketItem.id === item.id && basketItem.size === item.size
@@ -90,7 +90,10 @@ export const BasketProvider = ({ children }: BasketProviderProps) => {
   }, []);
 
   return (
-    <BasketContext.Provider value={{ basket, totalPrice, addToBasket, clearBasket, increaseQuantity, decreaseQuantity }}>{children}</BasketContext.Provider>
+    <BasketContext.Provider
+      value={{ basket, totalPrice, addToBasket, clearBasket, increaseQuantity, decreaseQuantity }}>
+      {children}
+    </BasketContext.Provider>
   );
 };
 

@@ -52,6 +52,7 @@ export default function ProductPage({
         name: product.name,
         size,
         price,
+        quantity: 1,
       };
 
       addToBasket(item);

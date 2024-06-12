@@ -1,0 +1,69 @@
+.deals {
+  width: 100%;
+  max-width: 1200px;
+  padding: 10px 20px;
+  min-height: 100vh;
+  overflow: hidden;
+  color: var(--color-four);
+}
+
+.deals::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../../images/page-background.png');
+  background-size: 150px;
+  background-position: center;
+  opacity: 0.2;
+  z-index: -1;
+}
+
+.dealsTitle {
+  margin-bottom: 10px;
+  font-weight: 600;
+  font-family: var(--font-one);
+  color: var(--color-one);
+  text-align: center;
+}
+
+
+.dealsWelcomeText {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  text-align: center;
+  font-style: italic;
+  background-color: var(--color-three);
+}
+
+.select {
+  background-color: var(--color-two);
+  box-shadow: 0 0 3px 1px var(--color-three);
+  padding: 5px;
+  width: 100%;
+}
+
+.dealOptions {
+  margin-top: 20px;
+}
+
+.addToBasketButton {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: var(--color-five);
+  color: var(--color-two);
+  border: none;
+  border-radius: 8px;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.addToBasketButton:hover {
+  color: var(--color-five);
+  background-color: var(--color-two);
+  box-shadow: 0 0 3px 1px var(--color-five);
+}
